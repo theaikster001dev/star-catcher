@@ -63,7 +63,16 @@
     "currentPlatform": "GDevelop JS platform"
   },
   "resources": {
-    "resources": []
+    "resources": [
+      {
+        "file": "Assets/Player32x32.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Assets/Player32x32.png",
+        "smoothed": true,
+        "userAdded": false
+      }
+    ]
   },
   "objects": [],
   "objectsFolderStructure": {
@@ -101,13 +110,128 @@
       },
       "objectsGroups": [],
       "variables": [],
-      "instances": [],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "Player",
+          "persistentUuid": "207e521c-e2f0-489c-99d6-b298e1d53cdf",
+          "width": 0,
+          "x": 629,
+          "y": 329,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        }
+      ],
       "objects": [
         {
           "adaptCollisionMaskAutomatically": true,
           "assetStoreId": "",
           "name": "Player",
-          "persistentUuid": "3b0e332e-7e9d-4a9b-ac5b-12ad1c419d83",
+          "persistentUuid": "28cc6247-b05c-4d29-a727-19d540fdbb24",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "StayOnScreen",
+              "type": "StayOnScreen::StayOnScreen",
+              "MarginTop": 0,
+              "MarginBottom": 0,
+              "MarginLeft": 0,
+              "MarginRight": 0
+            },
+            {
+              "acceleration": 400,
+              "allowDiagonals": true,
+              "angleOffset": 0,
+              "angularMaxSpeed": 180,
+              "customIsometryAngle": 30,
+              "deceleration": 800,
+              "ignoreDefaultControls": false,
+              "maxSpeed": 200,
+              "movementAngleOffset": 0,
+              "name": "TopDownMovement",
+              "rotateObject": false,
+              "type": "TopDownMovementBehavior::TopDownMovementBehavior",
+              "useLegacyTurnBack": false,
+              "viewpoint": "TopDown"
+            },
+            {
+              "name": "TopDownMovementAnimator",
+              "type": "TopDownMovementAnimator::TopDownMovementAnimator",
+              "Animation": "Animation",
+              "TopDownMovement": "TopDownMovement",
+              "IsScalingAnimation": true,
+              "IsPausingAnimation": true,
+              "AnimationName": "Walk",
+              "DirectionCount": 0,
+              "AngleOffset": 0,
+              "AnimationDirection": 0
+            }
+          ],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "Assets/Player32x32.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 2,
+                            "y": 3
+                          },
+                          {
+                            "x": 30,
+                            "y": 3
+                          },
+                          {
+                            "x": 30,
+                            "y": 29
+                          },
+                          {
+                            "x": 2,
+                            "y": 29
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "NewSprite",
+          "persistentUuid": "5f1a6816-3358-48c4-a7bd-46176c7c6a1d",
           "type": "Sprite",
           "updateIfNotVisible": false,
           "variables": [],
@@ -121,6 +245,9 @@
         "children": [
           {
             "objectName": "Player"
+          },
+          {
+            "objectName": "NewSprite"
           }
         ]
       },
@@ -216,11 +343,3930 @@
         {
           "name": "Scale",
           "type": "ScalableCapability::ScalableBehavior"
+        },
+        {
+          "name": "StayOnScreen",
+          "type": "StayOnScreen::StayOnScreen"
+        },
+        {
+          "name": "TopDownMovement",
+          "type": "TopDownMovementBehavior::TopDownMovementBehavior"
+        },
+        {
+          "name": "TopDownMovementAnimator",
+          "type": "TopDownMovementAnimator::TopDownMovementAnimator",
+          "NewAnimationDirection": 0,
+          "AnimationFrame": 0
         }
       ]
     }
   ],
   "externalEvents": [],
-  "eventsFunctionsExtensions": [],
+  "eventsFunctionsExtensions": [
+    {
+      "author": "",
+      "category": "Movement",
+      "dimension": "2D",
+      "extensionNamespace": "",
+      "fullName": "Pixel perfect movement",
+      "gdevelopVersion": ">=5.5.222",
+      "helpPath": "",
+      "iconUrl": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMy4wLjMsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iSWNvbnMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgMzIgMzIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDMyIDMyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7ZmlsbDpub25lO3N0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoyO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQoJLnN0MXtmaWxsOm5vbmU7c3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjI7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO30NCgkuc3Qye2ZpbGw6bm9uZTtzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MjtzdHJva2UtbGluZWNhcDpyb3VuZDtzdHJva2UtbGluZWpvaW46cm91bmQ7c3Ryb2tlLWRhc2hhcnJheTo2LDY7fQ0KCS5zdDN7ZmlsbDpub25lO3N0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoyO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtZGFzaGFycmF5OjQsNDt9DQoJLnN0NHtmaWxsOm5vbmU7c3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjI7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7fQ0KCS5zdDV7ZmlsbDpub25lO3N0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoyO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1kYXNoYXJyYXk6My4xMDgxLDMuMTA4MTt9DQoJDQoJCS5zdDZ7ZmlsbDpub25lO3N0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoyO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoxMDtzdHJva2UtZGFzaGFycmF5OjQsMzt9DQo8L3N0eWxlPg0KPHJlY3QgeD0iNCIgeT0iNCIgY2xhc3M9InN0MCIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0Ii8+DQo8bGluZSBjbGFzcz0ic3QwIiB4MT0iMTIiIHkxPSIyOCIgeDI9IjEyIiB5Mj0iNCIvPg0KPGxpbmUgY2xhc3M9InN0MCIgeDE9IjIwIiB5MT0iMjgiIHgyPSIyMCIgeTI9IjQiLz4NCjxsaW5lIGNsYXNzPSJzdDAiIHgxPSIyOCIgeTE9IjIwIiB4Mj0iNCIgeTI9IjIwIi8+DQo8bGluZSBjbGFzcz0ic3QwIiB4MT0iMjgiIHkxPSIxMiIgeDI9IjQiIHkyPSIxMiIvPg0KPC9zdmc+DQo=",
+      "name": "PixelPerfectMovement",
+      "previewIconUrl": "https://resources.gdevelop-app.com/assets/Icons/Line Hero Pack/Master/SVG/Graphic Design/Graphic Design_grid.svg",
+      "shortDescription": "Grid-based pixel-perfect movement for platformer and top-down characters.",
+      "version": "0.3.2",
+      "description": [
+        "Games with pixel art usually use pixels bigger than actual pixels of the screen. This can lead to big pixels partially overlapping each other which doesn't look good.",
+        "",
+        "This extension allows to seamlessly keep big pixels aligned when the object is stopped and still beneficiate from the high resolution of the screen to have smooth movements.",
+        "",
+        "It can be used for:",
+        "* Pixel-perfect platformers ([open the project online](https://editor.gdevelop.io/?project=example://platformer-with-tilemap))",
+        "* Align top-down characters on a grid ([open the project online](https://editor.gdevelop.io/?project=example://top-down-grid-movement))"
+      ],
+      "origin": {
+        "identifier": "PixelPerfectMovement",
+        "name": "gdevelop-extension-store"
+      },
+      "tags": [
+        "pixel perfect",
+        "platformer",
+        "platform",
+        "top-down",
+        "movement",
+        "grid"
+      ],
+      "authorIds": [
+        "IWykYNRvhCZBN3vEgKEbBPOR3Oc2",
+        "mkJFlZEo4aXeAZxt8CsXjEkW4Oq1",
+        "mMR36hCjO5dlcYmhNSuVtcREM473"
+      ],
+      "dependencies": [],
+      "globalVariables": [],
+      "sceneVariables": [],
+      "eventsFunctions": [
+        {
+          "description": "Return the speed necessary to cover a distance according to the deceleration.",
+          "fullName": "Speed to reach",
+          "functionType": "Expression",
+          "name": "SpeedToReach",
+          "private": true,
+          "sentence": "Braking distance from an initial speed: _PARAM2_ and a deceleration: _PARAM3_ is less than _PARAM1_",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "BuiltinCommonInstructions::CompareNumbers"
+                  },
+                  "parameters": [
+                    "Distance",
+                    ">=",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetReturnNumber"
+                  },
+                  "parameters": [
+                    "sqrt(2 * Distance * Deceleration)"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "BuiltinCommonInstructions::CompareNumbers"
+                  },
+                  "parameters": [
+                    "Distance",
+                    "<",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetReturnNumber"
+                  },
+                  "parameters": [
+                    "-sqrt(-2 * Distance * Deceleration)"
+                  ]
+                }
+              ]
+            }
+          ],
+          "expressionType": {
+            "type": "expression"
+          },
+          "parameters": [
+            {
+              "description": "Distance",
+              "name": "Distance",
+              "type": "expression"
+            },
+            {
+              "description": "Deceleration",
+              "name": "Deceleration",
+              "type": "expression"
+            }
+          ],
+          "objectGroups": []
+        },
+        {
+          "description": "Return the braking distance according to an initial speed and a deceleration.",
+          "fullName": "Braking distance",
+          "functionType": "Expression",
+          "name": "BrakingDistance",
+          "private": true,
+          "sentence": "Braking distance from an initial speed: _PARAM2_ and a deceleration: _PARAM3_ is less than _PARAM1_",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetReturnNumber"
+                  },
+                  "parameters": [
+                    "Speed * Speed / (2 * Deceleration)"
+                  ]
+                }
+              ]
+            }
+          ],
+          "expressionType": {
+            "type": "expression"
+          },
+          "parameters": [
+            {
+              "description": "Speed",
+              "name": "Speed",
+              "type": "expression"
+            },
+            {
+              "description": "Deceleration",
+              "name": "Deceleration",
+              "type": "expression"
+            }
+          ],
+          "objectGroups": []
+        },
+        {
+          "description": "Define JavaScript classes for top-down.",
+          "fullName": "Define JavaScript classes for top-down",
+          "functionType": "Action",
+          "name": "DefineJavaScriptForTopDown",
+          "private": true,
+          "sentence": "Define JavaScript classes  for top-down",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": [
+                "if (gdjs.__pixelPerfectExtension) {",
+                "  return;",
+                "}",
+                "",
+                "const epsilon = 1 / (1 << 20);",
+                "",
+                "class PixelPerfectTopDownMovement {",
+                "",
+                "  /**",
+                "   * @param {gdjs.RuntimeBehavior} pixelPerfectBehavior",
+                "   * @param {gdjs.TopDownMovementRuntimeBehavior} topDownBehavior",
+                "   */",
+                "  constructor(pixelPerfectBehavior, topDownBehavior) {",
+                "    /** @type {gdjs.RuntimeBehavior} */",
+                "    this.pixelPerfectBehavior = pixelPerfectBehavior;",
+                "    /** @type {gdjs.TopDownMovementRuntimeBehavior} */",
+                "    this.topDownBehavior = topDownBehavior;",
+                "",
+                "    topDownBehavior.registerHook(this);",
+                "",
+                "    /** @type {number | null} */",
+                "    this.targetX = null;",
+                "    /** @type {number | null} */",
+                "    this.targetY = null;",
+                "    this.targetDirectionX = 0;",
+                "    this.targetDirectionY = 0;",
+                "    this.lastDirection = -1;",
+                "    this.isVelocityAdjusted = false;",
+                "    this.isVelocityAdjustedOnX = false;",
+                "    this.isVelocityAdjustedOnY = false;",
+                "  }",
+                "",
+                "  /**",
+                "   * Return the direction to use instead of the direction given in",
+                "   * parameter.",
+                "   * @param {gdjs.TopDownMovementRuntimeBehavior.TopDownMovementHookContext} context",
+                "   * @return {number}",
+                "   */",
+                "  overrideDirection(context) {",
+                "    let direction = context.getDirection();",
+                "    if (!this.pixelPerfectBehavior.activated()) {",
+                "      return direction;",
+                "    }",
+                "",
+                "    /** @type {number} */",
+                "    const cellSize = this.pixelPerfectBehavior._getPixelSize();",
+                "    const that = this.topDownBehavior;",
+                "    const object = that.owner;",
+                "",
+                "    if (cellSize <= 0 || that._allowDiagonals) {",
+                "      return direction;",
+                "    }",
+                "",
+                "    // Forbid to turn before being aligned on the grid.",
+                "",
+                "    const timeDelta = object.getElapsedTime() / 1000;",
+                "    const deltaX = Math.abs(that._xVelocity * timeDelta);",
+                "    const deltaY = Math.abs(that._yVelocity * timeDelta);",
+                "",
+                "    const isTryingToMoveOnX = direction === 4 || direction === 0;",
+                "    const isTryingToMoveOnY = direction === 6 || direction === 2;",
+                "    if (isTryingToMoveOnX) {",
+                "      if (that._yVelocity < 0) {",
+                "        if (Math.abs(this.ceilToCellY(object.y) - object.y) > deltaY) {",
+                "          direction = 6;",
+                "        } else {",
+                "          object.y = this.ceilToCellY(object.y);",
+                "        }",
+                "      }",
+                "      if (that._yVelocity > 0) {",
+                "        if (Math.abs(this.floorToCellY(object.y) - object.y) > deltaY) {",
+                "          direction = 2;",
+                "        } else {",
+                "          object.y = this.floorToCellY(object.y);",
+                "        }",
+                "      }",
+                "    } else if (isTryingToMoveOnY) {",
+                "      if (that._xVelocity < 0) {",
+                "        if (Math.abs(this.ceilToCellX(object.x) - object.x) > deltaX) {",
+                "          direction = 4;",
+                "        } else {",
+                "          object.x = this.ceilToCellX(object.x);",
+                "        }",
+                "      }",
+                "      if (that._xVelocity > 0) {",
+                "        if (Math.abs(this.floorToCellX(object.x) - object.x) > deltaX) {",
+                "          direction = 0;",
+                "        } else {",
+                "          object.x = this.floorToCellX(object.x);",
+                "        }",
+                "      }",
+                "    }",
+                "",
+                "    // Ensure sharp turn even with Verlet integrations.",
+                "    const speed = Math.abs(that._xVelocity + that._yVelocity);",
+                "    if (direction === 0) {",
+                "      that._xVelocity = speed;",
+                "      that._yVelocity = 0;",
+                "    } else if (direction === 4) {",
+                "      that._xVelocity = -speed;",
+                "      that._yVelocity = 0;",
+                "    } else if (direction === 2) {",
+                "      that._yVelocity = speed;",
+                "      that._xVelocity = 0;",
+                "    } else if (direction === 6) {",
+                "      that._yVelocity = -speed;",
+                "      that._xVelocity = 0;",
+                "    }",
+                "",
+                "    this.lastDirection = direction;",
+                "    return direction;",
+                "  }",
+                "",
+                "  /**",
+                "   * Called before the acceleration and new direction is applied to the",
+                "   * velocity.",
+                "   * @param {gdjs.TopDownMovementRuntimeBehavior.TopDownMovementHookContext} context",
+                "   */",
+                "  beforeSpeedUpdate(context) {",
+                "    if (!this.pixelPerfectBehavior.activated()) {",
+                "      return;",
+                "    }",
+                "",
+                "    const direction = context.getDirection();",
+                "    /** @type {number} */",
+                "    const cellSize = this.pixelPerfectBehavior._getPixelSize();",
+                "    const that = this.topDownBehavior;",
+                "    const object = that.owner;",
+                "",
+                "    if (cellSize <= 0) {",
+                "      return;",
+                "    }",
+                "",
+                "    const isMovingOnX =",
+                "      direction !== -1 && direction !== 2 && direction !== 6;",
+                "    if (isMovingOnX) {",
+                "      this.targetX = null;",
+                "    } else if (this.targetX === null) {",
+                "      // Find where the deceleration should stop the object.",
+                "      if (that._xVelocity > 0) {",
+                "        this.targetX = this.ceilToCellX(",
+                "          object.x + this.getBreakingDistanceX()",
+                "        );",
+                "        this.targetDirectionX = 1;",
+                "      }",
+                "      if (that._xVelocity < 0) {",
+                "        this.targetX = this.floorToCellX(",
+                "          object.x - this.getBreakingDistanceX()",
+                "        );",
+                "        this.targetDirectionX = -1;",
+                "      }",
+                "    }",
+                "",
+                "    const isMovingOnY =",
+                "      direction !== -1 && direction !== 0 && direction !== 4;",
+                "    if (isMovingOnY) {",
+                "      this.targetY = null;",
+                "    } else if (this.targetY === null) {",
+                "      // Find where the deceleration should stop the object.",
+                "      if (that._yVelocity > 0) {",
+                "        this.targetY = this.ceilToCellY(",
+                "          object.y + this.getBreakingDistanceY()",
+                "        );",
+                "        this.targetDirectionY = 1;",
+                "      }",
+                "      if (that._yVelocity < 0) {",
+                "        this.targetY = this.floorToCellY(",
+                "          object.y - this.getBreakingDistanceY()",
+                "        );",
+                "        this.targetDirectionY = -1;",
+                "      }",
+                "    }",
+                "",
+                "    // Make as if the player had press button a bit longer to reach exactly",
+                "    // the next cell.",
+                "",
+                "    this.isVelocityAdjustedOnX = this.targetX !== null;",
+                "    if (this.isVelocityAdjustedOnX) {",
+                "      if (this.targetDirectionX > 0) {",
+                "        if (this.targetX > object.getX()) {",
+                "          that._xVelocity = Math.min(",
+                "            that._xVelocity + that._acceleration,",
+                "            that._maxSpeed,",
+                "            this.getSpeedToReach(this.targetX - object.getX())",
+                "          );",
+                "        }",
+                "        const nextFrameX = object.getX() + that._xVelocity * object.getElapsedTime() / 1000;",
+                "        if (this.targetX <= nextFrameX) {",
+                "          that._xVelocity = 0;",
+                "          object.setX(this.roundToCellX(object.getX()));",
+                "          this.targetX = null;",
+                "        }",
+                "      }",
+                "      if (this.targetDirectionX < 0) {",
+                "        if (this.targetX < object.getX()) {",
+                "          that._xVelocity = Math.max(",
+                "            that._xVelocity - that._acceleration,",
+                "            -that._maxSpeed,",
+                "            this.getSpeedToReach(this.targetX - object.getX())",
+                "          );",
+                "        }",
+                "        const nextFrameX = object.getX() + that._xVelocity * object.getElapsedTime() / 1000;",
+                "        if (this.targetX >= nextFrameX) {",
+                "          that._xVelocity = 0;",
+                "          object.setX(this.roundToCellX(object.getX()));",
+                "          this.targetX = null;",
+                "        }",
+                "      }",
+                "      // The velocity is exact. There no need for Verlet integration.",
+                "      this.previousVelocityX = that._xVelocity;",
+                "    }",
+                "",
+                "    this.isVelocityAdjustedOnY = this.targetY !== null;",
+                "    if (this.isVelocityAdjustedOnY) {",
+                "      if (this.targetDirectionY > 0) {",
+                "        if (this.targetY > object.getY()) {",
+                "          that._yVelocity = Math.min(",
+                "            that._yVelocity + that._acceleration,",
+                "            that._maxSpeed,",
+                "            this.getSpeedToReach(this.targetY - object.getY())",
+                "          );",
+                "        }",
+                "        const nextFrameY = object.getY() + that._yVelocity * object.getElapsedTime() / 1000;",
+                "        if (this.targetY <= nextFrameY) {",
+                "          that._yVelocity = 0;",
+                "          object.setY(this.roundToCellY(object.getY()));",
+                "          this.targetY = null;",
+                "        }",
+                "      }",
+                "      if (this.targetDirectionY < 0) {",
+                "        if (this.targetY < object.getY()) {",
+                "          that._yVelocity = Math.max(",
+                "            that._yVelocity - that._acceleration,",
+                "            -that._maxSpeed,",
+                "            this.getSpeedToReach(this.targetY - object.getY())",
+                "          );",
+                "        }",
+                "        const nextFrameY = object.getY() + that._yVelocity * object.getElapsedTime() / 1000;",
+                "        if (this.targetY >= nextFrameY) {",
+                "          that._yVelocity = 0;",
+                "          object.setY(this.roundToCellY(object.getY()));",
+                "          this.targetY = null;",
+                "        }",
+                "      }",
+                "      // The velocity is exact. There no need for Verlet integration.",
+                "      this.previousVelocityY = that._yVelocity;",
+                "    }",
+                "  }",
+                "",
+                "  /**",
+                "   * Called before the velocity is applied to the object position and",
+                "   * angle.",
+                "   */",
+                "  beforePositionUpdate() {",
+                "    if (!this.pixelPerfectBehavior.activated()) {",
+                "      return;",
+                "    }",
+                "",
+                "    /** @type {number} */",
+                "    const cellSize = this.pixelPerfectBehavior._getPixelSize();",
+                "    if (cellSize <= 0) {",
+                "      return;",
+                "    }",
+                "",
+                "    const that = this.topDownBehavior;",
+                "",
+                "    if (this.isVelocityAdjustedOnX) {",
+                "      // The velocity is exact. There no need for Verlet integration.",
+                "      that._xVelocity = this.previousVelocityX;",
+                "    }",
+                "    if (this.isVelocityAdjustedOnY) {",
+                "      // The velocity is exact. There no need for Verlet integration.",
+                "      that._yVelocity = this.previousVelocityY;",
+                "    }",
+                "  }",
+                "",
+                "  doStepPostEvents(instanceContainer) {",
+                "    /** @type {number} */",
+                "    const cellSize = this.pixelPerfectBehavior._getPixelSize();",
+                "    if (cellSize <= 0) {",
+                "      return;",
+                "    }",
+                "",
+                "    const that = this.topDownBehavior;",
+                "    const object = that.owner;",
+                "",
+                "    const isMovingOnX =",
+                "      this.lastDirection !== -1 &&",
+                "      this.lastDirection !== 2 &&",
+                "      this.lastDirection !== 6;",
+                "    const isMovingOnY =",
+                "      this.lastDirection !== -1 &&",
+                "      this.lastDirection !== 0 &&",
+                "      this.lastDirection !== 4;",
+                "",
+                "    // Avoid rounding errors after a call to \"separate\" to make characters",
+                "    // move indefinitely in front of a wall because they can't reach the cell.",
+                "    if (!isMovingOnX && that._xVelocity !== 0) {",
+                "      const x = object.getX();",
+                "      const roundedX = this.roundToCellX(x);",
+                "      if (Math.abs(roundedX - x) < epsilon) {",
+                "        object.setX(roundedX);",
+                "        this.targetDirectionX = 0;",
+                "        that._xVelocity = 0;",
+                "      }",
+                "    }",
+                "    if (!isMovingOnY && that._yVelocity !== 0) {",
+                "      const y = object.getY();",
+                "      const roundedY = this.roundToCellY(y);",
+                "      if (Math.abs(roundedY - y) < epsilon) {",
+                "        object.setY(roundedY);",
+                "        this.targetDirectionY = 0;",
+                "        that._yVelocity = 0;",
+                "      }",
+                "    }",
+                "  }",
+                "",
+                "  /**",
+                "   * @returns {number} the braking distance according to an initial speed and a deceleration.",
+                "   */",
+                "  getBreakingDistanceX() {",
+                "    const that = this.topDownBehavior;",
+                "    return (that._xVelocity * that._xVelocity) / (2 * that._deceleration);",
+                "  }",
+                "",
+                "  /**",
+                "   * @returns {number} the braking distance according to an initial speed and a deceleration.",
+                "   */",
+                "  getBreakingDistanceY() {",
+                "    const that = this.topDownBehavior;",
+                "    return (that._yVelocity * that._yVelocity) / (2 * that._deceleration);",
+                "  }",
+                "",
+                "  /**",
+                "   * @param {number} displacement",
+                "   * @returns {number} the speed necessary to cover a distance according to the deceleration.",
+                "   */",
+                "  getSpeedToReach(displacement) {",
+                "    const that = this.topDownBehavior;",
+                "    return (",
+                "      Math.sign(displacement) *",
+                "      Math.sqrt(2 * Math.abs(displacement) * that._deceleration)",
+                "    );",
+                "  }",
+                "",
+                "  /**",
+                "   * @param {number} x",
+                "   * @return {number}",
+                "   */",
+                "  ceilToCellX(x) {",
+                "    /** @type {number} */",
+                "    const cellSize = this.pixelPerfectBehavior._getPixelSize();",
+                "    /** @type {number} */",
+                "    const gridOffsetX = this.pixelPerfectBehavior._getOffsetX();",
+                "",
+                "    return (",
+                "      gridOffsetX +",
+                "      cellSize * Math.ceil((x - gridOffsetX) / cellSize)",
+                "    );",
+                "  }",
+                "",
+                "  /**",
+                "   * @param {number} x",
+                "   * @return {number}",
+                "   */",
+                "  roundToCellX(x) {",
+                "    /** @type {number} */",
+                "    const cellSize = this.pixelPerfectBehavior._getPixelSize();",
+                "    /** @type {number} */",
+                "    const gridOffsetX = this.pixelPerfectBehavior._getOffsetX();",
+                "",
+                "    return (",
+                "      gridOffsetX +",
+                "      cellSize * Math.round((x - gridOffsetX) / cellSize)",
+                "    );",
+                "  }",
+                "",
+                "  /**",
+                "   * @param {number} x",
+                "   * @return {number}",
+                "   */",
+                "  floorToCellX(x) {",
+                "    /** @type {number} */",
+                "    const cellSize = this.pixelPerfectBehavior._getPixelSize();",
+                "    /** @type {number} */",
+                "    const gridOffsetX = this.pixelPerfectBehavior._getOffsetX();",
+                "",
+                "    return (",
+                "      gridOffsetX +",
+                "      cellSize * Math.floor((x - gridOffsetX) / cellSize)",
+                "    );",
+                "  }",
+                "",
+                "  /**",
+                "   * @param {number} y",
+                "   * @return {number}",
+                "   */",
+                "  ceilToCellY(y) {",
+                "    /** @type {number} */",
+                "    const cellSize = this.pixelPerfectBehavior._getPixelSize();",
+                "    /** @type {number} */",
+                "    const gridOffsetY = this.pixelPerfectBehavior._getOffsetY();",
+                "",
+                "    return (",
+                "      gridOffsetY +",
+                "      cellSize * Math.ceil((y - gridOffsetY) / cellSize)",
+                "    );",
+                "  }",
+                "",
+                "  /**",
+                "   * @param {number} y",
+                "   * @return {number}",
+                "   */",
+                "  roundToCellY(y) {",
+                "    /** @type {number} */",
+                "    const cellSize = this.pixelPerfectBehavior._getPixelSize();",
+                "    /** @type {number} */",
+                "    const gridOffsetY = this.pixelPerfectBehavior._getOffsetY();",
+                "",
+                "    return (",
+                "      gridOffsetY +",
+                "      cellSize * Math.round((y - gridOffsetY) / cellSize)",
+                "    );",
+                "  }",
+                "",
+                "  /**",
+                "   * @param {number} y",
+                "   * @return {number}",
+                "   */",
+                "  floorToCellY(y) {",
+                "    /** @type {number} */",
+                "    const cellSize = this.pixelPerfectBehavior._getPixelSize();",
+                "    /** @type {number} */",
+                "    const gridOffsetY = this.pixelPerfectBehavior._getOffsetY();",
+                "",
+                "    return (",
+                "      gridOffsetY +",
+                "      cellSize * Math.floor((y - gridOffsetY) / cellSize)",
+                "    );",
+                "  }",
+                "}",
+                "",
+                "gdjs.__pixelPerfectExtension = {",
+                "  PixelPerfectTopDownMovement",
+                "}"
+              ],
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": true
+            }
+          ],
+          "parameters": [],
+          "objectGroups": []
+        }
+      ],
+      "eventsFunctionsFolderStructure": {
+        "folderName": "__ROOT",
+        "children": [
+          {
+            "functionName": "SpeedToReach"
+          },
+          {
+            "functionName": "BrakingDistance"
+          },
+          {
+            "functionName": "DefineJavaScriptForTopDown"
+          }
+        ]
+      },
+      "eventsBasedBehaviors": [
+        {
+          "description": "Seamlessly align big pixels using a top-down movement.",
+          "fullName": "Pixel perfect top-down movement",
+          "helpPath": "",
+          "iconUrl": "",
+          "name": "PixelPerfectTopDownMovement",
+          "objectType": "",
+          "previewIconUrl": "",
+          "eventsFunctions": [
+            {
+              "fullName": "",
+              "functionType": "Action",
+              "name": "onCreated",
+              "sentence": "",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "PixelPerfectMovement::DefineJavaScriptForTopDown"
+                      },
+                      "parameters": [
+                        "",
+                        ""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::JsCode",
+                  "inlineCode": [
+                    "\r",
+                    "const object = objects[0];\r",
+                    "const behaviorName = eventsFunctionContext.getBehaviorName(\"Behavior\");\r",
+                    "const behavior = object.getBehavior(behaviorName);\r",
+                    "\r",
+                    "/** @type {gdjs.TopDownMovementRuntimeBehavior} */\r",
+                    "const topDownBehavior = object.getBehavior(behavior._getTopDownMovement());\r",
+                    "\r",
+                    "const pixelPerfect = new gdjs.__pixelPerfectExtension.PixelPerfectTopDownMovement(behavior, topDownBehavior);\r",
+                    "topDownBehavior.__pixelPerfect = pixelPerfect;\r",
+                    "behavior.__pixelPerfect = pixelPerfect;\r",
+                    ""
+                  ],
+                  "parameterObjects": "Object",
+                  "useStrict": true,
+                  "eventsSheetExpanded": true
+                }
+              ],
+              "parameters": [
+                {
+                  "description": "Object",
+                  "name": "Object",
+                  "type": "object"
+                },
+                {
+                  "description": "Behavior",
+                  "name": "Behavior",
+                  "supplementaryInformation": "PixelPerfectMovement::PixelPerfectTopDownMovement",
+                  "type": "behavior"
+                }
+              ],
+              "objectGroups": []
+            },
+            {
+              "fullName": "",
+              "functionType": "Action",
+              "name": "doStepPostEvents",
+              "sentence": "",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::JsCode",
+                  "inlineCode": [
+                    "const object = objects[0];",
+                    "const behaviorName = eventsFunctionContext.getBehaviorName(\"Behavior\");",
+                    "const behavior = object.getBehavior(behaviorName);",
+                    "",
+                    "behavior.__pixelPerfect.doStepPostEvents(runtimeScene);"
+                  ],
+                  "parameterObjects": "Object",
+                  "useStrict": true,
+                  "eventsSheetExpanded": true
+                }
+              ],
+              "parameters": [
+                {
+                  "description": "Object",
+                  "name": "Object",
+                  "type": "object"
+                },
+                {
+                  "description": "Behavior",
+                  "name": "Behavior",
+                  "supplementaryInformation": "PixelPerfectMovement::PixelPerfectTopDownMovement",
+                  "type": "behavior"
+                }
+              ],
+              "objectGroups": []
+            }
+          ],
+          "eventsFunctionsFolderStructure": {
+            "folderName": "__ROOT",
+            "children": [
+              {
+                "functionName": "onCreated"
+              },
+              {
+                "functionName": "doStepPostEvents"
+              }
+            ]
+          },
+          "propertyDescriptors": [
+            {
+              "value": "",
+              "type": "Behavior",
+              "label": "Top-down movement behavior",
+              "extraInformation": [
+                "TopDownMovementBehavior::TopDownMovementBehavior"
+              ],
+              "choices": [],
+              "name": "TopDownMovement"
+            },
+            {
+              "value": "1",
+              "type": "Number",
+              "label": "Pixel size",
+              "name": "PixelSize"
+            },
+            {
+              "value": "0",
+              "type": "Number",
+              "label": "Pixel grid offset X",
+              "name": "OffsetX"
+            },
+            {
+              "value": "0",
+              "type": "Number",
+              "label": "Pixel grid offset Y",
+              "name": "OffsetY"
+            }
+          ],
+          "propertiesFolderStructure": {
+            "folderName": "__ROOT",
+            "children": [
+              {
+                "propertyName": "TopDownMovement"
+              },
+              {
+                "propertyName": "PixelSize"
+              },
+              {
+                "propertyName": "OffsetX"
+              },
+              {
+                "propertyName": "OffsetY"
+              }
+            ]
+          }
+        },
+        {
+          "description": "Seamlessly align big pixels using a 2D platformer character movement.",
+          "fullName": "Pixel perfect platformer character",
+          "helpPath": "",
+          "iconUrl": "",
+          "name": "PixelPerfectPlatformerCharacter",
+          "objectType": "",
+          "previewIconUrl": "",
+          "eventsFunctions": [
+            {
+              "fullName": "",
+              "functionType": "Action",
+              "name": "doStepPreEvents",
+              "sentence": "",
+              "events": [
+                {
+                  "colorB": 228,
+                  "colorG": 176,
+                  "colorR": 74,
+                  "creationTime": 0,
+                  "name": "X axis",
+                  "source": "",
+                  "type": "BuiltinCommonInstructions::Group",
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Comment",
+                      "color": {
+                        "b": 109,
+                        "g": 230,
+                        "r": 255,
+                        "textB": 0,
+                        "textG": 0,
+                        "textR": 0
+                      },
+                      "comment": "We don't know if the deceleration was already applied or not this step, but if the speed drifted from more than 1%, another extension is probably modifying the speed and it must not be overridden."
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "BooleanVariable"
+                          },
+                          "parameters": [
+                            "IsDecelerating",
+                            "True",
+                            ""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "BuiltinCommonInstructions::CompareNumbers"
+                          },
+                          "parameters": [
+                            "abs(Object.PlatformerCharacter::CurrentSpeed() - PreviousSpeedX)",
+                            "<",
+                            "Object.PlatformerCharacter::CurrentSpeed() * 0.01 + Object.PlatformerCharacter::Deceleration() * TimeDelta()"
+                          ]
+                        }
+                      ],
+                      "actions": [],
+                      "events": [
+                        {
+                          "type": "BuiltinCommonInstructions::Comment",
+                          "color": {
+                            "b": 109,
+                            "g": 230,
+                            "r": 255,
+                            "textB": 0,
+                            "textG": 0,
+                            "textR": 0
+                          },
+                          "comment": "Find how far to go to reach a pixel."
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "BuiltinCommonInstructions::Once"
+                              },
+                              "parameters": []
+                            }
+                          ],
+                          "actions": [],
+                          "events": [
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "PlatformBehavior::CurrentSpeed"
+                                  },
+                                  "parameters": [
+                                    "Object",
+                                    "PlatformerCharacter",
+                                    ">",
+                                    "0"
+                                  ]
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "SetNumberVariable"
+                                  },
+                                  "parameters": [
+                                    "TargetX",
+                                    "=",
+                                    "OffsetX + PixelSize * ceil((Object.X() + PixelPerfectMovement::BrakingDistance(Object.PlatformerCharacter::CurrentSpeed(), Object.PlatformerCharacter::Deceleration()) - OffsetX) / PixelSize)"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "SetNumberVariable"
+                                  },
+                                  "parameters": [
+                                    "TargetDirectionX",
+                                    "=",
+                                    "1"
+                                  ]
+                                }
+                              ],
+                              "events": [
+                                {
+                                  "disabled": true,
+                                  "type": "BuiltinCommonInstructions::Standard",
+                                  "conditions": [],
+                                  "actions": [
+                                    {
+                                      "type": {
+                                        "value": "DebuggerTools::ConsoleLog"
+                                      },
+                                      "parameters": [
+                                        "\"Target: \" + ToString(Object.X()) + \"-->\" + TargetX",
+                                        "",
+                                        ""
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "PlatformBehavior::CurrentSpeed"
+                                  },
+                                  "parameters": [
+                                    "Object",
+                                    "PlatformerCharacter",
+                                    "<",
+                                    "0"
+                                  ]
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "SetNumberVariable"
+                                  },
+                                  "parameters": [
+                                    "TargetX",
+                                    "=",
+                                    "OffsetX + PixelSize * floor((Object.X() - PixelPerfectMovement::BrakingDistance(Object.PlatformerCharacter::CurrentSpeed(), Object.PlatformerCharacter::Deceleration()) - OffsetX) / PixelSize)"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "SetNumberVariable"
+                                  },
+                                  "parameters": [
+                                    "TargetDirectionX",
+                                    "=",
+                                    "-1"
+                                  ]
+                                }
+                              ],
+                              "events": [
+                                {
+                                  "disabled": true,
+                                  "type": "BuiltinCommonInstructions::Standard",
+                                  "conditions": [],
+                                  "actions": [
+                                    {
+                                      "type": {
+                                        "value": "DebuggerTools::ConsoleLog"
+                                      },
+                                      "parameters": [
+                                        "\"Target: \" + ToString(Object.X()) + \"-->\" + TargetX",
+                                        "",
+                                        ""
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Comment",
+                          "color": {
+                            "b": 109,
+                            "g": 230,
+                            "r": 255,
+                            "textB": 0,
+                            "textG": 0,
+                            "textR": 0
+                          },
+                          "comment": "Move to the target as the movement behavior would do."
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "PosX"
+                              },
+                              "parameters": [
+                                "Object",
+                                "<",
+                                "TargetX"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "NumberVariable"
+                              },
+                              "parameters": [
+                                "TargetDirectionX",
+                                "=",
+                                "1"
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "PlatformBehavior::PlatformerObjectBehavior::SetCurrentSpeed"
+                              },
+                              "parameters": [
+                                "Object",
+                                "PlatformerCharacter",
+                                "=",
+                                "min(Object.PlatformerCharacter::CurrentSpeed() + Object.PlatformerCharacter::Acceleration(), min(Object.PlatformerCharacter::MaxSpeed(), PixelPerfectMovement::SpeedToReach(TargetX - Object.X(), Object.PlatformerCharacter::Deceleration())))"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "PosX"
+                              },
+                              "parameters": [
+                                "Object",
+                                ">",
+                                "TargetX"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "NumberVariable"
+                              },
+                              "parameters": [
+                                "TargetDirectionX",
+                                "=",
+                                "-1"
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "PlatformBehavior::PlatformerObjectBehavior::SetCurrentSpeed"
+                              },
+                              "parameters": [
+                                "Object",
+                                "PlatformerCharacter",
+                                "=",
+                                "max(Object.PlatformerCharacter::CurrentSpeed() - Object.PlatformerCharacter::Acceleration(), max(-Object.PlatformerCharacter::MaxSpeed(), PixelPerfectMovement::SpeedToReach(TargetX - Object.X(), Object.PlatformerCharacter::Deceleration())))"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "BuiltinCommonInstructions::Or"
+                              },
+                              "parameters": [],
+                              "subInstructions": [
+                                {
+                                  "type": {
+                                    "value": "BuiltinCommonInstructions::And"
+                                  },
+                                  "parameters": [],
+                                  "subInstructions": [
+                                    {
+                                      "type": {
+                                        "value": "PosX"
+                                      },
+                                      "parameters": [
+                                        "Object",
+                                        ">=",
+                                        "TargetX"
+                                      ]
+                                    },
+                                    {
+                                      "type": {
+                                        "value": "NumberVariable"
+                                      },
+                                      "parameters": [
+                                        "TargetDirectionX",
+                                        "=",
+                                        "1"
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "BuiltinCommonInstructions::And"
+                                  },
+                                  "parameters": [],
+                                  "subInstructions": [
+                                    {
+                                      "type": {
+                                        "value": "PosX"
+                                      },
+                                      "parameters": [
+                                        "Object",
+                                        "<=",
+                                        "TargetX"
+                                      ]
+                                    },
+                                    {
+                                      "type": {
+                                        "value": "NumberVariable"
+                                      },
+                                      "parameters": [
+                                        "TargetDirectionX",
+                                        "=",
+                                        "-1"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "SetX"
+                              },
+                              "parameters": [
+                                "Object",
+                                "=",
+                                "OffsetX + PixelSize * round((Object.X() - OffsetX) / PixelSize)"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "SetNumberVariable"
+                              },
+                              "parameters": [
+                                "TargetDirectionX",
+                                "=",
+                                "0"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "PlatformBehavior::PlatformerObjectBehavior::SetCurrentSpeed"
+                              },
+                              "parameters": [
+                                "Object",
+                                "PlatformerCharacter",
+                                "=",
+                                "0"
+                              ]
+                            }
+                          ],
+                          "events": [
+                            {
+                              "disabled": true,
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "DebuggerTools::ConsoleLog"
+                                  },
+                                  "parameters": [
+                                    "\"X: \" + ToString(Object.X()) + \" Speed: \" + ToString(Object.PlatformerCharacter::CurrentSpeed())",
+                                    "",
+                                    ""
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "parameters": []
+                },
+                {
+                  "colorB": 228,
+                  "colorG": 176,
+                  "colorR": 74,
+                  "creationTime": 0,
+                  "name": "Ladder",
+                  "source": "",
+                  "type": "BuiltinCommonInstructions::Group",
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "PlatformBehavior::IsOnLadder"
+                          },
+                          "parameters": [
+                            "Object",
+                            "PlatformerCharacter"
+                          ]
+                        }
+                      ],
+                      "actions": [],
+                      "events": [
+                        {
+                          "type": "BuiltinCommonInstructions::Comment",
+                          "color": {
+                            "b": 109,
+                            "g": 230,
+                            "r": 255,
+                            "textB": 0,
+                            "textG": 0,
+                            "textR": 0
+                          },
+                          "comment": "Find how far to go to reach a pixel."
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "inverted": true,
+                                "value": "PlatformBehavior::PlatformerObjectBehavior::IsUsingControl"
+                              },
+                              "parameters": [
+                                "Object",
+                                "PlatformerCharacter",
+                                "\"Down\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "BuiltinCommonInstructions::Once"
+                              },
+                              "parameters": []
+                            }
+                          ],
+                          "actions": [],
+                          "events": [
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "inverted": true,
+                                    "value": "PlatformBehavior::PlatformerObjectBehavior::IsUsingControl"
+                                  },
+                                  "parameters": [
+                                    "Object",
+                                    "PlatformerCharacter",
+                                    "\"Up\""
+                                  ]
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "SetNumberVariable"
+                                  },
+                                  "parameters": [
+                                    "TargetY",
+                                    "=",
+                                    "OffsetY + PixelSize * ceil((Object.Y() - OffsetY) / PixelSize)"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "SetNumberVariable"
+                                  },
+                                  "parameters": [
+                                    "TargetDirectionY",
+                                    "=",
+                                    "1"
+                                  ]
+                                }
+                              ],
+                              "events": [
+                                {
+                                  "disabled": true,
+                                  "type": "BuiltinCommonInstructions::Standard",
+                                  "conditions": [],
+                                  "actions": [
+                                    {
+                                      "type": {
+                                        "value": "DebuggerTools::ConsoleLog"
+                                      },
+                                      "parameters": [
+                                        "\"Target: \" + ToString(Object.Y()) + \"-->\" + TargetY",
+                                        "",
+                                        ""
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "inverted": true,
+                                "value": "PlatformBehavior::PlatformerObjectBehavior::IsUsingControl"
+                              },
+                              "parameters": [
+                                "Object",
+                                "PlatformerCharacter",
+                                "\"Up\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "BuiltinCommonInstructions::Once"
+                              },
+                              "parameters": []
+                            }
+                          ],
+                          "actions": [],
+                          "events": [
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "inverted": true,
+                                    "value": "PlatformBehavior::PlatformerObjectBehavior::IsUsingControl"
+                                  },
+                                  "parameters": [
+                                    "Object",
+                                    "PlatformerCharacter",
+                                    "\"Down\""
+                                  ]
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "SetNumberVariable"
+                                  },
+                                  "parameters": [
+                                    "TargetY",
+                                    "=",
+                                    "OffsetY + PixelSize * floor((Object.Y() - OffsetY) / PixelSize)"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "SetNumberVariable"
+                                  },
+                                  "parameters": [
+                                    "TargetDirectionY",
+                                    "=",
+                                    "-1"
+                                  ]
+                                }
+                              ],
+                              "events": [
+                                {
+                                  "disabled": true,
+                                  "type": "BuiltinCommonInstructions::Standard",
+                                  "conditions": [],
+                                  "actions": [
+                                    {
+                                      "type": {
+                                        "value": "DebuggerTools::ConsoleLog"
+                                      },
+                                      "parameters": [
+                                        "\"Target: \" + ToString(Object.Y()) + \"-->\" + TargetY",
+                                        "",
+                                        ""
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Comment",
+                          "color": {
+                            "b": 109,
+                            "g": 230,
+                            "r": 255,
+                            "textB": 0,
+                            "textG": 0,
+                            "textR": 0
+                          },
+                          "comment": "Move to the target as the movement behavior would do."
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "inverted": true,
+                                "value": "PlatformBehavior::PlatformerObjectBehavior::IsUsingControl"
+                              },
+                              "parameters": [
+                                "Object",
+                                "PlatformerCharacter",
+                                "\"Up\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "inverted": true,
+                                "value": "PlatformBehavior::PlatformerObjectBehavior::IsUsingControl"
+                              },
+                              "parameters": [
+                                "Object",
+                                "PlatformerCharacter",
+                                "\"Down\""
+                              ]
+                            }
+                          ],
+                          "actions": [],
+                          "events": [
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "PosY"
+                                  },
+                                  "parameters": [
+                                    "Object",
+                                    "<",
+                                    "TargetY"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "NumberVariable"
+                                  },
+                                  "parameters": [
+                                    "TargetDirectionY",
+                                    "=",
+                                    "1"
+                                  ]
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "SetY"
+                                  },
+                                  "parameters": [
+                                    "Object",
+                                    "+",
+                                    "Object.PlatformerCharacter::MaxSpeed() * TimeDelta()"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "PosY"
+                                  },
+                                  "parameters": [
+                                    "Object",
+                                    ">",
+                                    "TargetY"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "NumberVariable"
+                                  },
+                                  "parameters": [
+                                    "TargetDirectionY",
+                                    "=",
+                                    "-1"
+                                  ]
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "SetY"
+                                  },
+                                  "parameters": [
+                                    "Object",
+                                    "-",
+                                    "Object.PlatformerCharacter::MaxSpeed() * TimeDelta()"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "BuiltinCommonInstructions::Or"
+                                  },
+                                  "parameters": [],
+                                  "subInstructions": [
+                                    {
+                                      "type": {
+                                        "value": "BuiltinCommonInstructions::And"
+                                      },
+                                      "parameters": [],
+                                      "subInstructions": [
+                                        {
+                                          "type": {
+                                            "value": "PosY"
+                                          },
+                                          "parameters": [
+                                            "Object",
+                                            ">=",
+                                            "TargetY"
+                                          ]
+                                        },
+                                        {
+                                          "type": {
+                                            "value": "NumberVariable"
+                                          },
+                                          "parameters": [
+                                            "TargetDirectionY",
+                                            "=",
+                                            "1"
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": {
+                                        "value": "BuiltinCommonInstructions::And"
+                                      },
+                                      "parameters": [],
+                                      "subInstructions": [
+                                        {
+                                          "type": {
+                                            "value": "PosY"
+                                          },
+                                          "parameters": [
+                                            "Object",
+                                            "<=",
+                                            "TargetY"
+                                          ]
+                                        },
+                                        {
+                                          "type": {
+                                            "value": "NumberVariable"
+                                          },
+                                          "parameters": [
+                                            "TargetDirectionY",
+                                            "=",
+                                            "-1"
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "SetY"
+                                  },
+                                  "parameters": [
+                                    "Object",
+                                    "=",
+                                    "OffsetY + PixelSize * round((Object.Y() - OffsetY) / PixelSize)"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "SetNumberVariable"
+                                  },
+                                  "parameters": [
+                                    "TargetDirectionY",
+                                    "=",
+                                    "0"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "disabled": true,
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "DebuggerTools::ConsoleLog"
+                                  },
+                                  "parameters": [
+                                    "\"X: \" + ToString(Object.X()) + \" Speed: \" + ToString(Object.PlatformerCharacter::CurrentSpeed())",
+                                    "",
+                                    ""
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "parameters": []
+                }
+              ],
+              "parameters": [
+                {
+                  "description": "Object",
+                  "name": "Object",
+                  "type": "object"
+                },
+                {
+                  "description": "Behavior",
+                  "name": "Behavior",
+                  "supplementaryInformation": "PixelPerfectMovement::PixelPerfectPlatformerCharacter",
+                  "type": "behavior"
+                }
+              ],
+              "objectGroups": []
+            },
+            {
+              "fullName": "",
+              "functionType": "Action",
+              "name": "doStepPostEvents",
+              "sentence": "",
+              "events": [
+                {
+                  "disabled": true,
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "BuiltinCommonInstructions::CompareNumbers"
+                      },
+                      "parameters": [
+                        "abs(Object.PlatformerCharacter::CurrentSpeed())",
+                        "!=",
+                        "0"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "BuiltinCommonInstructions::CompareNumbers"
+                      },
+                      "parameters": [
+                        "abs(Object.PlatformerCharacter::CurrentSpeed())",
+                        "!=",
+                        "Object.PlatformerCharacter::MaxSpeed()"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "DebuggerTools::ConsoleLog"
+                      },
+                      "parameters": [
+                        "ToString(abs(PreviousSpeedX) - Object.PlatformerCharacter::Deceleration() * TimeDelta() - abs(Object.PlatformerCharacter::CurrentSpeed()))",
+                        "",
+                        ""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Comment",
+                  "color": {
+                    "b": 109,
+                    "g": 230,
+                    "r": 255,
+                    "textB": 0,
+                    "textG": 0,
+                    "textR": 0
+                  },
+                  "comment": "Check if the character is decelerating.\nIt's done in doStepPostEvent because there is no way to know if the doStepPreEvents of this behavior is executed before or after the one of PlatformerCharcter.\nAs TimeDelta is used, we have to be sure the last PlatformerCharcter.doStepPreEvents call used the same TimeDelta. Which means this must be done after PlatformerCharcter.doStepPreEvents."
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetBooleanVariable"
+                      },
+                      "parameters": [
+                        "IsDecelerating",
+                        "False",
+                        ""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "BuiltinCommonInstructions::Or"
+                      },
+                      "parameters": [],
+                      "subInstructions": [
+                        {
+                          "type": {
+                            "value": "PlatformBehavior::CurrentSpeed"
+                          },
+                          "parameters": [
+                            "Object",
+                            "PlatformerCharacter",
+                            "=",
+                            "0"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "BuiltinCommonInstructions::CompareNumbers"
+                          },
+                          "parameters": [
+                            "abs(Object.PlatformerCharacter::CurrentSpeed())",
+                            "=",
+                            "abs(PreviousSpeedX) - Object.PlatformerCharacter::Deceleration() * TimeDelta()"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetBooleanVariable"
+                      },
+                      "parameters": [
+                        "IsDecelerating",
+                        "True",
+                        ""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Comment",
+                  "color": {
+                    "b": 109,
+                    "g": 230,
+                    "r": 255,
+                    "textB": 0,
+                    "textG": 0,
+                    "textR": 0
+                  },
+                  "comment": "Save the speed to detect speed changes from outside."
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetNumberVariable"
+                      },
+                      "parameters": [
+                        "PreviousSpeedX",
+                        "=",
+                        "Object.PlatformerCharacter::CurrentSpeed()"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "parameters": [
+                {
+                  "description": "Object",
+                  "name": "Object",
+                  "type": "object"
+                },
+                {
+                  "description": "Behavior",
+                  "name": "Behavior",
+                  "supplementaryInformation": "PixelPerfectMovement::PixelPerfectPlatformerCharacter",
+                  "type": "behavior"
+                }
+              ],
+              "objectGroups": []
+            }
+          ],
+          "eventsFunctionsFolderStructure": {
+            "folderName": "__ROOT",
+            "children": [
+              {
+                "functionName": "doStepPreEvents"
+              },
+              {
+                "functionName": "doStepPostEvents"
+              }
+            ]
+          },
+          "propertyDescriptors": [
+            {
+              "value": "",
+              "type": "Behavior",
+              "label": "Platformer character behavior",
+              "extraInformation": [
+                "PlatformBehavior::PlatformerObjectBehavior"
+              ],
+              "choices": [],
+              "name": "PlatformerCharacter"
+            },
+            {
+              "value": "1",
+              "type": "Number",
+              "label": "Pixel size",
+              "name": "PixelSize"
+            },
+            {
+              "value": "0",
+              "type": "Number",
+              "label": "Pixel grid offset X",
+              "name": "OffsetX"
+            },
+            {
+              "value": "0",
+              "type": "Number",
+              "label": "Pixel grid offset Y",
+              "name": "OffsetY"
+            },
+            {
+              "value": "0",
+              "type": "Number",
+              "label": "",
+              "hidden": true,
+              "name": "TargetX"
+            },
+            {
+              "value": "0",
+              "type": "Number",
+              "label": "",
+              "hidden": true,
+              "name": "TargetDirectionX"
+            },
+            {
+              "value": "0",
+              "type": "Number",
+              "label": "",
+              "hidden": true,
+              "name": "TargetY"
+            },
+            {
+              "value": "0",
+              "type": "Number",
+              "label": "",
+              "hidden": true,
+              "name": "TargetDirectionY"
+            },
+            {
+              "value": "",
+              "type": "Number",
+              "label": "",
+              "hidden": true,
+              "name": "PreviousSpeedX"
+            },
+            {
+              "value": "",
+              "type": "Boolean",
+              "label": "",
+              "hidden": true,
+              "name": "IsDecelerating"
+            }
+          ],
+          "propertiesFolderStructure": {
+            "folderName": "__ROOT",
+            "children": [
+              {
+                "propertyName": "PlatformerCharacter"
+              },
+              {
+                "propertyName": "PixelSize"
+              },
+              {
+                "propertyName": "OffsetX"
+              },
+              {
+                "propertyName": "OffsetY"
+              },
+              {
+                "propertyName": "TargetX"
+              },
+              {
+                "propertyName": "TargetDirectionX"
+              },
+              {
+                "propertyName": "TargetY"
+              },
+              {
+                "propertyName": "TargetDirectionY"
+              },
+              {
+                "propertyName": "PreviousSpeedX"
+              },
+              {
+                "propertyName": "IsDecelerating"
+              }
+            ]
+          }
+        }
+      ],
+      "eventsBasedObjects": []
+    },
+    {
+      "author": "",
+      "category": "Movement",
+      "dimension": "2D",
+      "extensionNamespace": "",
+      "fullName": "Top-down movement animator",
+      "gdevelopVersion": ">=5.5.222",
+      "helpPath": "",
+      "iconUrl": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMy4wLjMsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iSWNvbnMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgMzIgMzIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDMyIDMyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8Zz4NCgk8cGF0aCBkPSJNNiwyMS4xYy0wLjMsMC0wLjUtMC4xLTAuNy0wLjNsLTQtNC4xYy0wLjQtMC40LTAuNC0xLDAtMS40bDQtNC4xYzAuNC0wLjQsMS0wLjQsMS40LDBzMC40LDEsMCwxLjRMMy40LDE2bDMuMywzLjMNCgkJYzAuNCwwLjQsMC40LDEsMCwxLjRDNi42LDIxLDYuMywyMS4xLDYsMjEuMXoiLz4NCjwvZz4NCjxnPg0KCTxwYXRoIGQ9Ik0yNiwyMS4xYy0wLjMsMC0wLjUtMC4xLTAuNy0wLjNjLTAuNC0wLjQtMC40LTEsMC0xLjRsMy4zLTMuM2wtMy4zLTMuM2MtMC40LTAuNC0wLjQtMSwwLTEuNHMxLTAuNCwxLjQsMGw0LjEsNC4xDQoJCWMwLjIsMC4yLDAuMywwLjQsMC4zLDAuN3MtMC4xLDAuNS0wLjMsMC43bC00LjEsNC4xQzI2LjYsMjEsMjYuMywyMS4xLDI2LDIxLjF6Ii8+DQo8L2c+DQo8Zz4NCgk8cGF0aCBkPSJNMTYsMzEuMUwxNiwzMS4xYy0wLjMsMC0wLjUtMC4xLTAuNy0wLjNsLTQtNC4xYy0wLjQtMC40LTAuNC0xLDAtMS40czEtMC40LDEuNCwwbDMuMywzLjNsMy4zLTMuM2MwLjQtMC40LDEtMC40LDEuNCwwDQoJCXMwLjQsMSwwLDEuNGwtNC4xLDQuMUMxNi42LDMwLjksMTYuMywzMS4xLDE2LDMxLjF6Ii8+DQo8L2c+DQo8Zz4NCgk8cGF0aCBkPSJNMjAuMSw3Yy0wLjMsMC0wLjUtMC4xLTAuNy0wLjNMMTYsMy40bC0zLjMsMy4zYy0wLjQsMC40LTEsMC40LTEuNCwwcy0wLjQtMSwwLTEuNGw0LTQuMWMwLjQtMC40LDEtMC40LDEuNCwwbDQuMSw0LjENCgkJYzAuNCwwLjQsMC40LDEsMCwxLjRDMjAuNiw2LjksMjAuNCw3LDIwLjEsN3oiLz4NCjwvZz4NCjxnPg0KCTxwYXRoIGQ9Ik0xNiwzMGMtMC42LDAtMS0wLjQtMS0xVjNjMC0wLjYsMC40LTEsMS0xczEsMC40LDEsMXYyNkMxNywyOS42LDE2LjYsMzAsMTYsMzB6Ii8+DQo8L2c+DQo8Zz4NCgk8cGF0aCBkPSJNMjksMTdIMmMtMC42LDAtMS0wLjQtMS0xczAuNC0xLDEtMWgyN2MwLjYsMCwxLDAuNCwxLDFTMjkuNiwxNywyOSwxN3oiLz4NCjwvZz4NCjwvc3ZnPg0K",
+      "name": "TopDownMovementAnimator",
+      "previewIconUrl": "https://asset-resources.gdevelop.io/public-resources/Icons/Glyphster Pack/Master/SVG/Arrows/a6026156355ae5f03613b03971e4ddb50d0c95b8901e7a21edc57f33f0032e42_Arrows_thin_arrows_all_directions_cross.svg",
+      "shortDescription": "Auto-set animations based on top-down movement direction (4 or 8 directions).",
+      "version": "0.2.3",
+      "description": "Change the animation according to the movement direction.",
+      "origin": {
+        "identifier": "TopDownMovementAnimator",
+        "name": "gdevelop-extension-store"
+      },
+      "tags": [
+        "top-down",
+        "animation",
+        "direction"
+      ],
+      "authorIds": [
+        "IWykYNRvhCZBN3vEgKEbBPOR3Oc2"
+      ],
+      "dependencies": [],
+      "globalVariables": [],
+      "sceneVariables": [],
+      "eventsFunctions": [],
+      "eventsFunctionsFolderStructure": {
+        "folderName": "__ROOT"
+      },
+      "eventsBasedBehaviors": [
+        {
+          "description": "Change the animation according to the movement direction.",
+          "fullName": "Top-down movement animator",
+          "helpPath": "",
+          "iconUrl": "",
+          "name": "TopDownMovementAnimator",
+          "objectType": "",
+          "previewIconUrl": "",
+          "eventsFunctions": [
+            {
+              "fullName": "",
+              "functionType": "Action",
+              "name": "onCreated",
+              "sentence": "",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "NumberVariable"
+                      },
+                      "parameters": [
+                        "DirectionCount",
+                        "=",
+                        "0"
+                      ]
+                    }
+                  ],
+                  "actions": [],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "TopDownMovementBehavior::DiagonalsAllowed"
+                          },
+                          "parameters": [
+                            "Object",
+                            "TopDownMovement"
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "SetNumberVariable"
+                          },
+                          "parameters": [
+                            "DirectionCount",
+                            "=",
+                            "8"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "inverted": true,
+                            "value": "TopDownMovementBehavior::DiagonalsAllowed"
+                          },
+                          "parameters": [
+                            "Object",
+                            "TopDownMovement"
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "SetNumberVariable"
+                          },
+                          "parameters": [
+                            "DirectionCount",
+                            "=",
+                            "4"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "TopDownMovementAnimator::TopDownMovementAnimator::UpdateAnimation"
+                      },
+                      "parameters": [
+                        "Object",
+                        "Behavior",
+                        ""
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "parameters": [
+                {
+                  "description": "Object",
+                  "name": "Object",
+                  "type": "object"
+                },
+                {
+                  "description": "Behavior",
+                  "name": "Behavior",
+                  "supplementaryInformation": "TopDownMovementAnimator::TopDownMovementAnimator",
+                  "type": "behavior"
+                }
+              ],
+              "objectGroups": []
+            },
+            {
+              "fullName": "",
+              "functionType": "Action",
+              "name": "onActivate",
+              "sentence": "",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "TopDownMovementAnimator::TopDownMovementAnimator::UpdateAnimation"
+                      },
+                      "parameters": [
+                        "Object",
+                        "Behavior",
+                        ""
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "parameters": [
+                {
+                  "description": "Object",
+                  "name": "Object",
+                  "type": "object"
+                },
+                {
+                  "description": "Behavior",
+                  "name": "Behavior",
+                  "supplementaryInformation": "TopDownMovementAnimator::TopDownMovementAnimator",
+                  "type": "behavior"
+                }
+              ],
+              "objectGroups": []
+            },
+            {
+              "fullName": "",
+              "functionType": "Action",
+              "name": "doStepPostEvents",
+              "sentence": "",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "TopDownMovementAnimator::TopDownMovementAnimator::UpdateAnimation"
+                      },
+                      "parameters": [
+                        "Object",
+                        "Behavior",
+                        ""
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "parameters": [
+                {
+                  "description": "Object",
+                  "name": "Object",
+                  "type": "object"
+                },
+                {
+                  "description": "Behavior",
+                  "name": "Behavior",
+                  "supplementaryInformation": "TopDownMovementAnimator::TopDownMovementAnimator",
+                  "type": "behavior"
+                }
+              ],
+              "objectGroups": []
+            },
+            {
+              "description": "Update the animation according to the object direction.",
+              "fullName": "Update animation",
+              "functionType": "Action",
+              "name": "UpdateAnimation",
+              "private": true,
+              "sentence": "Update the animation of _PARAM0_",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "TopDownMovementAnimator::TopDownMovementAnimator::UpdateAnimationDirection"
+                      },
+                      "parameters": [
+                        "Object",
+                        "Behavior",
+                        "NewAnimationDirection",
+                        ""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "BooleanVariable"
+                      },
+                      "parameters": [
+                        "IsScalingAnimation",
+                        "True",
+                        ""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "TopDownMovementAnimator::TopDownMovementAnimator::UpdateAnimationSpeedScale"
+                      },
+                      "parameters": [
+                        "Object",
+                        "Behavior",
+                        ""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "BooleanVariable"
+                      },
+                      "parameters": [
+                        "IsPausingAnimation",
+                        "True",
+                        ""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "TopDownMovementAnimator::TopDownMovementAnimator::UpdateAnimationPause"
+                      },
+                      "parameters": [
+                        "Object",
+                        "Behavior",
+                        ""
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "parameters": [
+                {
+                  "description": "Object",
+                  "name": "Object",
+                  "type": "object"
+                },
+                {
+                  "description": "Behavior",
+                  "name": "Behavior",
+                  "supplementaryInformation": "TopDownMovementAnimator::TopDownMovementAnimator",
+                  "type": "behavior"
+                }
+              ],
+              "objectGroups": []
+            },
+            {
+              "description": "the animation name of the object.",
+              "fullName": "Animation name",
+              "functionType": "ExpressionAndCondition",
+              "name": "AnimationName",
+              "sentence": "the animation name",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetReturnString"
+                      },
+                      "parameters": [
+                        "AnimationName"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "expressionType": {
+                "type": "string"
+              },
+              "parameters": [
+                {
+                  "description": "Object",
+                  "name": "Object",
+                  "type": "object"
+                },
+                {
+                  "description": "Behavior",
+                  "name": "Behavior",
+                  "supplementaryInformation": "TopDownMovementAnimator::TopDownMovementAnimator",
+                  "type": "behavior"
+                }
+              ],
+              "objectGroups": []
+            },
+            {
+              "fullName": "",
+              "functionType": "ActionWithOperator",
+              "getterName": "AnimationName",
+              "name": "SetAnimationName",
+              "sentence": "",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Comment",
+                  "color": {
+                    "b": 109,
+                    "g": 230,
+                    "r": 255,
+                    "textB": 0,
+                    "textG": 0,
+                    "textR": 0
+                  },
+                  "comment": "Also update the animation direction to avoid to play the animation in an old direction for 1 frame."
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "StringVariable"
+                      },
+                      "parameters": [
+                        "AnimationName",
+                        "!=",
+                        "Value"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetStringVariable"
+                      },
+                      "parameters": [
+                        "AnimationName",
+                        "=",
+                        "Value"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "TopDownMovementAnimator::TopDownMovementAnimator::UpdateAnimationName"
+                      },
+                      "parameters": [
+                        "Object",
+                        "Behavior",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "TopDownMovementAnimator::TopDownMovementAnimator::UpdateAnimationDirection"
+                      },
+                      "parameters": [
+                        "Object",
+                        "Behavior",
+                        "NewAnimationDirection",
+                        ""
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "parameters": [
+                {
+                  "description": "Object",
+                  "name": "Object",
+                  "type": "object"
+                },
+                {
+                  "description": "Behavior",
+                  "name": "Behavior",
+                  "supplementaryInformation": "TopDownMovementAnimator::TopDownMovementAnimator",
+                  "type": "behavior"
+                }
+              ],
+              "objectGroups": []
+            },
+            {
+              "description": "Check if animations are paused when objects stop.",
+              "fullName": "Pause animations when objects stop",
+              "functionType": "Condition",
+              "name": "IsPausingAnimation",
+              "sentence": "_PARAM0_ animations are paused when objects stop",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "BooleanVariable"
+                      },
+                      "parameters": [
+                        "IsPausingAnimation",
+                        "True",
+                        ""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetReturnBoolean"
+                      },
+                      "parameters": [
+                        "True"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "parameters": [
+                {
+                  "description": "Object",
+                  "name": "Object",
+                  "type": "object"
+                },
+                {
+                  "description": "Behavior",
+                  "name": "Behavior",
+                  "supplementaryInformation": "TopDownMovementAnimator::TopDownMovementAnimator",
+                  "type": "behavior"
+                }
+              ],
+              "objectGroups": []
+            },
+            {
+              "description": "Change whether animations are paused when objects stop.",
+              "fullName": "Pause animations when objects stop",
+              "functionType": "Action",
+              "name": "SetIsPausingAnimation",
+              "sentence": "Pause animations of _PARAM0_ when stopped: _PARAM2_",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "BooleanVariable"
+                      },
+                      "parameters": [
+                        "Value",
+                        "False",
+                        ""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetBooleanVariable"
+                      },
+                      "parameters": [
+                        "IsPausingAnimation",
+                        "False",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "AnimatableCapability::AnimatableBehavior::PlayAnimation"
+                      },
+                      "parameters": [
+                        "Object",
+                        "Animation"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "BooleanVariable"
+                      },
+                      "parameters": [
+                        "Value",
+                        "True",
+                        ""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetBooleanVariable"
+                      },
+                      "parameters": [
+                        "IsPausingAnimation",
+                        "True",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "TopDownMovementAnimator::TopDownMovementAnimator::UpdateAnimationPause"
+                      },
+                      "parameters": [
+                        "Object",
+                        "Behavior",
+                        ""
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "parameters": [
+                {
+                  "description": "Object",
+                  "name": "Object",
+                  "type": "object"
+                },
+                {
+                  "description": "Behavior",
+                  "name": "Behavior",
+                  "supplementaryInformation": "TopDownMovementAnimator::TopDownMovementAnimator",
+                  "type": "behavior"
+                },
+                {
+                  "defaultValue": "yes",
+                  "description": "IsPausingAnimation",
+                  "name": "Value",
+                  "optional": true,
+                  "type": "yesorno"
+                }
+              ],
+              "objectGroups": []
+            },
+            {
+              "description": "Check if animations are scaled according to speed.",
+              "fullName": "Scale animations according to speed",
+              "functionType": "Condition",
+              "name": "IsScalingAnimation",
+              "sentence": "_PARAM0_ animations are scaled according to speed",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "BooleanVariable"
+                      },
+                      "parameters": [
+                        "IsScalingAnimation",
+                        "True",
+                        ""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetReturnBoolean"
+                      },
+                      "parameters": [
+                        "True"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "parameters": [
+                {
+                  "description": "Object",
+                  "name": "Object",
+                  "type": "object"
+                },
+                {
+                  "description": "Behavior",
+                  "name": "Behavior",
+                  "supplementaryInformation": "TopDownMovementAnimator::TopDownMovementAnimator",
+                  "type": "behavior"
+                }
+              ],
+              "objectGroups": []
+            },
+            {
+              "description": "Change whether animations are scaled according to speed or not.",
+              "fullName": "Scale animations according to speed",
+              "functionType": "Action",
+              "name": "SetIsScalingAnimation",
+              "sentence": "Scale animations of _PARAM0_ according to speed: _PARAM2_",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "inverted": true,
+                        "value": "BooleanVariable"
+                      },
+                      "parameters": [
+                        "Value",
+                        "True",
+                        ""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetBooleanVariable"
+                      },
+                      "parameters": [
+                        "IsScalingAnimation",
+                        "False",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "AnimatableCapability::AnimatableBehavior::SetSpeedScale"
+                      },
+                      "parameters": [
+                        "Object",
+                        "Animation",
+                        "=",
+                        "1"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "BooleanVariable"
+                      },
+                      "parameters": [
+                        "Value",
+                        "True",
+                        ""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetBooleanVariable"
+                      },
+                      "parameters": [
+                        "IsScalingAnimation",
+                        "True",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "TopDownMovementAnimator::TopDownMovementAnimator::UpdateAnimationSpeedScale"
+                      },
+                      "parameters": [
+                        "Object",
+                        "Behavior",
+                        ""
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "parameters": [
+                {
+                  "description": "Object",
+                  "name": "Object",
+                  "type": "object"
+                },
+                {
+                  "description": "Behavior",
+                  "name": "Behavior",
+                  "supplementaryInformation": "TopDownMovementAnimator::TopDownMovementAnimator",
+                  "type": "behavior"
+                },
+                {
+                  "defaultValue": "yes",
+                  "description": "IsScalingAnimation",
+                  "name": "Value",
+                  "optional": true,
+                  "type": "yesorno"
+                }
+              ],
+              "objectGroups": []
+            },
+            {
+              "description": "Change the animation speed scale according to the object speed.",
+              "fullName": "Animation speed scale",
+              "functionType": "Action",
+              "name": "UpdateAnimationSpeedScale",
+              "private": true,
+              "sentence": "Change the animation speed scale according to _PARAM0_ speed",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "TopDownMovementBehavior::MaxSpeed"
+                      },
+                      "parameters": [
+                        "Object",
+                        "TopDownMovement",
+                        ">",
+                        "0"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "AnimatableCapability::AnimatableBehavior::SetSpeedScale"
+                      },
+                      "parameters": [
+                        "Object",
+                        "Animation",
+                        "=",
+                        "Object.TopDownMovement::Speed() / Object.TopDownMovement::MaxSpeed()"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "TopDownMovementBehavior::MaxSpeed"
+                      },
+                      "parameters": [
+                        "Object",
+                        "TopDownMovement",
+                        "=",
+                        "0"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "AnimatableCapability::AnimatableBehavior::SetSpeedScale"
+                      },
+                      "parameters": [
+                        "Object",
+                        "Animation",
+                        "=",
+                        "0"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "parameters": [
+                {
+                  "description": "Object",
+                  "name": "Object",
+                  "type": "object"
+                },
+                {
+                  "description": "Behavior",
+                  "name": "Behavior",
+                  "supplementaryInformation": "TopDownMovementAnimator::TopDownMovementAnimator",
+                  "type": "behavior"
+                }
+              ],
+              "objectGroups": []
+            },
+            {
+              "description": "Pause the animation according to the object speed.",
+              "fullName": "Animation pause",
+              "functionType": "Action",
+              "name": "UpdateAnimationPause",
+              "private": true,
+              "sentence": "Pause the animation according to _PARAM0_ speed",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "TopDownMovementBehavior::Speed"
+                      },
+                      "parameters": [
+                        "Object",
+                        "TopDownMovement",
+                        ">",
+                        "0"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "AnimatableCapability::AnimatableBehavior::PlayAnimation"
+                      },
+                      "parameters": [
+                        "Object",
+                        "Animation"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "TopDownMovementBehavior::Speed"
+                      },
+                      "parameters": [
+                        "Object",
+                        "TopDownMovement",
+                        "=",
+                        "0"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "AnimatableCapability::AnimatableBehavior::PauseAnimation"
+                      },
+                      "parameters": [
+                        "Object",
+                        "Animation"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "parameters": [
+                {
+                  "description": "Object",
+                  "name": "Object",
+                  "type": "object"
+                },
+                {
+                  "description": "Behavior",
+                  "name": "Behavior",
+                  "supplementaryInformation": "TopDownMovementAnimator::TopDownMovementAnimator",
+                  "type": "behavior"
+                }
+              ],
+              "objectGroups": []
+            },
+            {
+              "description": "Return the object movement direction.",
+              "fullName": "Direction",
+              "functionType": "Expression",
+              "name": "Direction",
+              "private": true,
+              "sentence": "",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetReturnNumber"
+                      },
+                      "parameters": [
+                        "(Object.TopDownMovement::Angle() + AngleOffset) * DirectionCount / 360"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "expressionType": {
+                "type": "expression"
+              },
+              "parameters": [
+                {
+                  "description": "Object",
+                  "name": "Object",
+                  "type": "object"
+                },
+                {
+                  "description": "Behavior",
+                  "name": "Behavior",
+                  "supplementaryInformation": "TopDownMovementAnimator::TopDownMovementAnimator",
+                  "type": "behavior"
+                }
+              ],
+              "objectGroups": []
+            },
+            {
+              "description": "Return the difference between 2 directions.",
+              "fullName": "Direction dirrerence",
+              "functionType": "Expression",
+              "name": "DirectionDifference",
+              "private": true,
+              "sentence": "",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetReturnNumber"
+                      },
+                      "parameters": [
+                        "mod(mod(Direction - OtherDirection, DirectionCount) + DirectionCount / 2, DirectionCount) - DirectionCount / 2"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "expressionType": {
+                "type": "expression"
+              },
+              "parameters": [
+                {
+                  "description": "Object",
+                  "name": "Object",
+                  "type": "object"
+                },
+                {
+                  "description": "Behavior",
+                  "name": "Behavior",
+                  "supplementaryInformation": "TopDownMovementAnimator::TopDownMovementAnimator",
+                  "type": "behavior"
+                },
+                {
+                  "description": "Direction",
+                  "name": "Direction",
+                  "type": "expression"
+                },
+                {
+                  "description": "Other direction",
+                  "name": "OtherDirection",
+                  "type": "expression"
+                }
+              ],
+              "objectGroups": []
+            },
+            {
+              "description": "Update the animation direction of the object.",
+              "fullName": "Update animation direction",
+              "functionType": "Action",
+              "name": "UpdateAnimationDirection",
+              "private": true,
+              "sentence": "Update the animation direction of _PARAM0_",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Comment",
+                  "color": {
+                    "b": 109,
+                    "g": 230,
+                    "r": 255,
+                    "textB": 0,
+                    "textG": 0,
+                    "textR": 0
+                  },
+                  "comment": "Change the animation but keep the current frame number."
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetNumberVariable"
+                      },
+                      "parameters": [
+                        "NewAnimationDirection",
+                        "=",
+                        "Object.Behavior::Direction()"
+                      ]
+                    }
+                  ],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Comment",
+                      "color": {
+                        "b": 109,
+                        "g": 230,
+                        "r": 255,
+                        "textB": 0,
+                        "textG": 0,
+                        "textR": 0
+                      },
+                      "comment": "Use a small margin is used to avoid to flicker between 2 directions."
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "BuiltinCommonInstructions::CompareNumbers"
+                          },
+                          "parameters": [
+                            "abs(Object.Behavior::DirectionDifference(NewAnimationDirection, AnimationDirection))",
+                            ">",
+                            "0.5 + 0.03125"
+                          ]
+                        }
+                      ],
+                      "actions": [],
+                      "events": [
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "SetNumberVariable"
+                              },
+                              "parameters": [
+                                "AnimationDirection",
+                                "=",
+                                "mod(mod(round(NewAnimationDirection), DirectionCount) + DirectionCount, DirectionCount)"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "SetNumberVariable"
+                              },
+                              "parameters": [
+                                "AnimationElapsedTime",
+                                "=",
+                                "Object.Animation::ElapsedTime()"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "TopDownMovementAnimator::TopDownMovementAnimator::UpdateAnimationName"
+                              },
+                              "parameters": [
+                                "Object",
+                                "Behavior",
+                                ""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "AnimatableCapability::AnimatableBehavior::SetElapsedTime"
+                              },
+                              "parameters": [
+                                "Object",
+                                "Animation",
+                                "=",
+                                "AnimationElapsedTime"
+                              ]
+                            }
+                          ],
+                          "variables": [
+                            {
+                              "folded": true,
+                              "name": "AnimationElapsedTime",
+                              "type": "number",
+                              "value": 0
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "variables": [
+                    {
+                      "folded": true,
+                      "name": "NewAnimationDirection",
+                      "type": "number",
+                      "value": 0
+                    }
+                  ]
+                }
+              ],
+              "parameters": [
+                {
+                  "description": "Object",
+                  "name": "Object",
+                  "type": "object"
+                },
+                {
+                  "description": "Behavior",
+                  "name": "Behavior",
+                  "supplementaryInformation": "TopDownMovementAnimator::TopDownMovementAnimator",
+                  "type": "behavior"
+                }
+              ],
+              "objectGroups": []
+            },
+            {
+              "description": "Update the animation name.",
+              "fullName": "Update animation name",
+              "functionType": "Action",
+              "name": "UpdateAnimationName",
+              "private": true,
+              "sentence": "Update the animation name of _PARAM0_",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "AnimatableCapability::AnimatableBehavior::SetName"
+                      },
+                      "parameters": [
+                        "Object",
+                        "Animation",
+                        "=",
+                        "AnimationName + AnimationDirection"
+                      ]
+                    }
+                  ],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Comment",
+                      "color": {
+                        "b": 109,
+                        "g": 230,
+                        "r": 255,
+                        "textB": 0,
+                        "textG": 0,
+                        "textR": 0
+                      },
+                      "comment": "Allow to use the same animation for any direction."
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "AnimatableCapability::AnimatableBehavior::Name"
+                          },
+                          "parameters": [
+                            "Object",
+                            "Animation",
+                            "!=",
+                            "AnimationName + AnimationDirection"
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "AnimatableCapability::AnimatableBehavior::SetName"
+                          },
+                          "parameters": [
+                            "Object",
+                            "Animation",
+                            "=",
+                            "AnimationName"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "parameters": [
+                {
+                  "description": "Object",
+                  "name": "Object",
+                  "type": "object"
+                },
+                {
+                  "description": "Behavior",
+                  "name": "Behavior",
+                  "supplementaryInformation": "TopDownMovementAnimator::TopDownMovementAnimator",
+                  "type": "behavior"
+                }
+              ],
+              "objectGroups": []
+            }
+          ],
+          "eventsFunctionsFolderStructure": {
+            "folderName": "__ROOT",
+            "children": [
+              {
+                "functionName": "onCreated"
+              },
+              {
+                "functionName": "onActivate"
+              },
+              {
+                "functionName": "doStepPostEvents"
+              },
+              {
+                "functionName": "UpdateAnimation"
+              },
+              {
+                "functionName": "AnimationName"
+              },
+              {
+                "functionName": "SetAnimationName"
+              },
+              {
+                "functionName": "IsPausingAnimation"
+              },
+              {
+                "functionName": "SetIsPausingAnimation"
+              },
+              {
+                "functionName": "IsScalingAnimation"
+              },
+              {
+                "functionName": "SetIsScalingAnimation"
+              },
+              {
+                "functionName": "UpdateAnimationSpeedScale"
+              },
+              {
+                "functionName": "UpdateAnimationPause"
+              },
+              {
+                "functionName": "Direction"
+              },
+              {
+                "functionName": "DirectionDifference"
+              },
+              {
+                "functionName": "UpdateAnimationDirection"
+              },
+              {
+                "functionName": "UpdateAnimationName"
+              }
+            ]
+          },
+          "propertyDescriptors": [
+            {
+              "value": "",
+              "type": "Behavior",
+              "label": "Animatable capability",
+              "extraInformation": [
+                "AnimatableCapability::AnimatableBehavior"
+              ],
+              "choices": [],
+              "name": "Animation"
+            },
+            {
+              "value": "",
+              "type": "Behavior",
+              "label": "Top-down movement",
+              "extraInformation": [
+                "TopDownMovementBehavior::TopDownMovementBehavior"
+              ],
+              "choices": [],
+              "name": "TopDownMovement"
+            },
+            {
+              "value": "true",
+              "type": "Boolean",
+              "label": "Scale animations according to speed",
+              "group": "Animation",
+              "name": "IsScalingAnimation"
+            },
+            {
+              "value": "true",
+              "type": "Boolean",
+              "label": "Pause animations when objects stop",
+              "group": "Animation",
+              "name": "IsPausingAnimation"
+            },
+            {
+              "value": "Walk",
+              "type": "String",
+              "label": "Animation name",
+              "description": "Animations must be called \"Walk0\", \"Walk1\"... for left, down...",
+              "group": "Animation",
+              "name": "AnimationName"
+            },
+            {
+              "value": "0",
+              "type": "Number",
+              "unit": "Dimensionless",
+              "label": "Number of directions",
+              "description": "Leave to 0 to automatically use 8 when diagonals are allowed and 4 otherwise.",
+              "group": "Direction",
+              "name": "DirectionCount"
+            },
+            {
+              "value": "0",
+              "type": "Number",
+              "unit": "DegreeAngle",
+              "label": "Angle offset",
+              "description": "Set to 90°, \"Walk0\" becomes the animation for down.",
+              "group": "Direction",
+              "name": "AngleOffset"
+            },
+            {
+              "value": "0",
+              "type": "Number",
+              "label": "",
+              "hidden": true,
+              "name": "AnimationDirection"
+            }
+          ],
+          "propertiesFolderStructure": {
+            "folderName": "__ROOT",
+            "children": [
+              {
+                "propertyName": "Animation"
+              },
+              {
+                "propertyName": "TopDownMovement"
+              },
+              {
+                "folderName": "Animation",
+                "children": [
+                  {
+                    "propertyName": "IsScalingAnimation"
+                  },
+                  {
+                    "propertyName": "IsPausingAnimation"
+                  },
+                  {
+                    "propertyName": "AnimationName"
+                  }
+                ]
+              },
+              {
+                "folderName": "Direction",
+                "children": [
+                  {
+                    "propertyName": "DirectionCount"
+                  },
+                  {
+                    "propertyName": "AngleOffset"
+                  }
+                ]
+              },
+              {
+                "propertyName": "AnimationDirection"
+              }
+            ]
+          },
+          "sharedPropertyDescriptors": [
+            {
+              "value": "0",
+              "type": "Number",
+              "label": "",
+              "hidden": true,
+              "name": "NewAnimationDirection"
+            },
+            {
+              "value": "0",
+              "type": "Number",
+              "label": "",
+              "hidden": true,
+              "name": "AnimationFrame"
+            }
+          ],
+          "sharedPropertiesFolderStructure": {
+            "folderName": "__ROOT",
+            "children": [
+              {
+                "propertyName": "NewAnimationDirection"
+              },
+              {
+                "propertyName": "AnimationFrame"
+              }
+            ]
+          }
+        }
+      ],
+      "eventsBasedObjects": []
+    },
+    {
+      "author": "@4ian",
+      "category": "Movement",
+      "dimension": "2D",
+      "extensionNamespace": "",
+      "fullName": "Stay On Screen (2D)",
+      "gdevelopVersion": ">=5.5.222",
+      "helpPath": "",
+      "iconUrl": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0ibWRpLW1vbml0b3Itc2NyZWVuc2hvdCIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGQ9Ik05LDZINVYxMEg3VjhIOU0xOSwxMEgxN1YxMkgxNVYxNEgxOU0yMSwxNkgzVjRIMjFNMjEsMkgzQzEuODksMiAxLDIuODkgMSw0VjE2QTIsMiAwIDAsMCAzLDE4SDEwVjIwSDhWMjJIMTZWMjBIMTRWMThIMjFBMiwyIDAgMCwwIDIzLDE2VjRDMjMsMi44OSAyMi4xLDIgMjEsMiIgLz48L3N2Zz4=",
+      "name": "StayOnScreen",
+      "previewIconUrl": "https://resources.gdevelop-app.com/assets/Icons/monitor-screenshot.svg",
+      "shortDescription": "Constrain object position to remain within the camera viewport boundaries.",
+      "version": "1.1.1",
+      "description": [
+        "Force the object to stay visible on the screen by setting back its 2D position (X and Y coordinates) inside the viewport of the camera.",
+        "",
+        "The shoot'em up example uses this extension ([open the project online](https://editor.gdevelop.io/?project=example://space-shooter))."
+      ],
+      "origin": {
+        "identifier": "StayOnScreen",
+        "name": "gdevelop-extension-store"
+      },
+      "tags": [
+        "positioning",
+        "camera",
+        "screen"
+      ],
+      "authorIds": [
+        "wWP8BSlAW0UP4NeaHa2LcmmDzmH2",
+        "2OwwM8ToR9dx9RJ2sAKTcrLmCB92",
+        "IWykYNRvhCZBN3vEgKEbBPOR3Oc2"
+      ],
+      "dependencies": [],
+      "globalVariables": [],
+      "sceneVariables": [],
+      "eventsFunctions": [],
+      "eventsFunctionsFolderStructure": {
+        "folderName": "__ROOT"
+      },
+      "eventsBasedBehaviors": [
+        {
+          "description": "Force the object to stay visible on the screen by setting back its 2D position inside the viewport of the camera.",
+          "fullName": "Stay on Screen",
+          "helpPath": "",
+          "iconUrl": "",
+          "name": "StayOnScreen",
+          "objectType": "",
+          "previewIconUrl": "",
+          "eventsFunctions": [
+            {
+              "fullName": "",
+              "functionType": "Action",
+              "name": "doStepPostEvents",
+              "sentence": "",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetX"
+                      },
+                      "parameters": [
+                        "Object",
+                        "+",
+                        "max(0, CameraBorderLeft(Object.Layer()) + MarginLeft - Object.BoundingBoxLeft())\n"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetX"
+                      },
+                      "parameters": [
+                        "Object",
+                        "+",
+                        "min(0, CameraBorderRight(Object.Layer()) - MarginRight - Object.BoundingBoxRight())\n"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetY"
+                      },
+                      "parameters": [
+                        "Object",
+                        "+",
+                        "max(0, CameraBorderTop(Object.Layer()) + MarginTop - Object.BoundingBoxTop())\n"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetY"
+                      },
+                      "parameters": [
+                        "Object",
+                        "+",
+                        "min(0, CameraBorderBottom(Object.Layer()) - MarginBottom - Object.BoundingBoxBottom())\n"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "parameters": [
+                {
+                  "description": "Object",
+                  "name": "Object",
+                  "type": "object"
+                },
+                {
+                  "description": "Behavior",
+                  "name": "Behavior",
+                  "supplementaryInformation": "StayOnScreen::StayOnScreen",
+                  "type": "behavior"
+                }
+              ],
+              "objectGroups": []
+            },
+            {
+              "description": "the top margin (in pixels) to leave between the object and the screen border.",
+              "fullName": "Screen top margin",
+              "functionType": "ExpressionAndCondition",
+              "group": "Stay on Screen configuration",
+              "name": "MarginTop",
+              "sentence": "the top margin",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetReturnNumber"
+                      },
+                      "parameters": [
+                        "MarginTop"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "expressionType": {
+                "type": "expression"
+              },
+              "parameters": [
+                {
+                  "description": "Object",
+                  "name": "Object",
+                  "type": "object"
+                },
+                {
+                  "description": "Behavior",
+                  "name": "Behavior",
+                  "supplementaryInformation": "StayOnScreen::StayOnScreen",
+                  "type": "behavior"
+                }
+              ],
+              "objectGroups": []
+            },
+            {
+              "fullName": "",
+              "functionType": "ActionWithOperator",
+              "getterName": "MarginTop",
+              "group": "Stay on Screen configuration",
+              "name": "SetMarginTop",
+              "sentence": "",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetNumberVariable"
+                      },
+                      "parameters": [
+                        "MarginTop",
+                        "=",
+                        "Value"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "parameters": [
+                {
+                  "description": "Object",
+                  "name": "Object",
+                  "type": "object"
+                },
+                {
+                  "description": "Behavior",
+                  "name": "Behavior",
+                  "supplementaryInformation": "StayOnScreen::StayOnScreen",
+                  "type": "behavior"
+                }
+              ],
+              "objectGroups": []
+            },
+            {
+              "description": "the bottom margin (in pixels) to leave between the object and the screen border.",
+              "fullName": "Screen bottom margin",
+              "functionType": "ExpressionAndCondition",
+              "group": "Stay on Screen configuration",
+              "name": "MarginBottom",
+              "sentence": "the bottom margin",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetReturnNumber"
+                      },
+                      "parameters": [
+                        "MarginBottom"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "expressionType": {
+                "type": "expression"
+              },
+              "parameters": [
+                {
+                  "description": "Object",
+                  "name": "Object",
+                  "type": "object"
+                },
+                {
+                  "description": "Behavior",
+                  "name": "Behavior",
+                  "supplementaryInformation": "StayOnScreen::StayOnScreen",
+                  "type": "behavior"
+                }
+              ],
+              "objectGroups": []
+            },
+            {
+              "fullName": "",
+              "functionType": "ActionWithOperator",
+              "getterName": "MarginBottom",
+              "group": "Stay on Screen configuration",
+              "name": "SetMarginBottom",
+              "sentence": "",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetNumberVariable"
+                      },
+                      "parameters": [
+                        "MarginBottom",
+                        "=",
+                        "Value"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "parameters": [
+                {
+                  "description": "Object",
+                  "name": "Object",
+                  "type": "object"
+                },
+                {
+                  "description": "Behavior",
+                  "name": "Behavior",
+                  "supplementaryInformation": "StayOnScreen::StayOnScreen",
+                  "type": "behavior"
+                }
+              ],
+              "objectGroups": []
+            },
+            {
+              "description": "the left margin (in pixels) to leave between the object and the screen border.",
+              "fullName": "Screen left margin",
+              "functionType": "ExpressionAndCondition",
+              "group": "Stay on Screen configuration",
+              "name": "MarginLeft",
+              "sentence": "the left margin",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetReturnNumber"
+                      },
+                      "parameters": [
+                        "MarginLeft"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "expressionType": {
+                "type": "expression"
+              },
+              "parameters": [
+                {
+                  "description": "Object",
+                  "name": "Object",
+                  "type": "object"
+                },
+                {
+                  "description": "Behavior",
+                  "name": "Behavior",
+                  "supplementaryInformation": "StayOnScreen::StayOnScreen",
+                  "type": "behavior"
+                }
+              ],
+              "objectGroups": []
+            },
+            {
+              "fullName": "",
+              "functionType": "ActionWithOperator",
+              "getterName": "MarginLeft",
+              "group": "Stay on Screen configuration",
+              "name": "SetMarginLeft",
+              "sentence": "",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetNumberVariable"
+                      },
+                      "parameters": [
+                        "MarginLeft",
+                        "=",
+                        "Value"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "parameters": [
+                {
+                  "description": "Object",
+                  "name": "Object",
+                  "type": "object"
+                },
+                {
+                  "description": "Behavior",
+                  "name": "Behavior",
+                  "supplementaryInformation": "StayOnScreen::StayOnScreen",
+                  "type": "behavior"
+                }
+              ],
+              "objectGroups": []
+            },
+            {
+              "description": "the right margin (in pixels) to leave between the object and the screen border.",
+              "fullName": "Screen right margin",
+              "functionType": "ExpressionAndCondition",
+              "group": "Stay on Screen configuration",
+              "name": "MarginRight",
+              "sentence": "the right margin",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetReturnNumber"
+                      },
+                      "parameters": [
+                        "MarginRight"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "expressionType": {
+                "type": "expression"
+              },
+              "parameters": [
+                {
+                  "description": "Object",
+                  "name": "Object",
+                  "type": "object"
+                },
+                {
+                  "description": "Behavior",
+                  "name": "Behavior",
+                  "supplementaryInformation": "StayOnScreen::StayOnScreen",
+                  "type": "behavior"
+                }
+              ],
+              "objectGroups": []
+            },
+            {
+              "fullName": "",
+              "functionType": "ActionWithOperator",
+              "getterName": "MarginRight",
+              "group": "Stay on Screen configuration",
+              "name": "SetMarginRight",
+              "sentence": "",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetNumberVariable"
+                      },
+                      "parameters": [
+                        "MarginRight",
+                        "=",
+                        "Value"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "parameters": [
+                {
+                  "description": "Object",
+                  "name": "Object",
+                  "type": "object"
+                },
+                {
+                  "description": "Behavior",
+                  "name": "Behavior",
+                  "supplementaryInformation": "StayOnScreen::StayOnScreen",
+                  "type": "behavior"
+                }
+              ],
+              "objectGroups": []
+            }
+          ],
+          "eventsFunctionsFolderStructure": {
+            "folderName": "__ROOT",
+            "children": [
+              {
+                "functionName": "doStepPostEvents"
+              },
+              {
+                "folderName": "Stay on Screen configuration",
+                "children": [
+                  {
+                    "functionName": "MarginTop"
+                  },
+                  {
+                    "functionName": "SetMarginTop"
+                  },
+                  {
+                    "functionName": "MarginBottom"
+                  },
+                  {
+                    "functionName": "SetMarginBottom"
+                  },
+                  {
+                    "functionName": "MarginLeft"
+                  },
+                  {
+                    "functionName": "SetMarginLeft"
+                  },
+                  {
+                    "functionName": "MarginRight"
+                  },
+                  {
+                    "functionName": "SetMarginRight"
+                  }
+                ]
+              }
+            ]
+          },
+          "propertyDescriptors": [
+            {
+              "value": "0",
+              "type": "Number",
+              "unit": "Pixel",
+              "label": "Top margin",
+              "name": "MarginTop"
+            },
+            {
+              "value": "0",
+              "type": "Number",
+              "unit": "Pixel",
+              "label": "Bottom margin",
+              "name": "MarginBottom"
+            },
+            {
+              "value": "0",
+              "type": "Number",
+              "unit": "Pixel",
+              "label": "Left margin",
+              "name": "MarginLeft"
+            },
+            {
+              "value": "0",
+              "type": "Number",
+              "unit": "Pixel",
+              "label": "Right margin",
+              "name": "MarginRight"
+            }
+          ],
+          "propertiesFolderStructure": {
+            "folderName": "__ROOT",
+            "children": [
+              {
+                "propertyName": "MarginTop"
+              },
+              {
+                "propertyName": "MarginBottom"
+              },
+              {
+                "propertyName": "MarginLeft"
+              },
+              {
+                "propertyName": "MarginRight"
+              }
+            ]
+          }
+        }
+      ],
+      "eventsBasedObjects": []
+    }
+  ],
   "externalLayouts": []
 }
