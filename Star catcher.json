@@ -71,6 +71,22 @@
         "name": "Assets/Player32x32.png",
         "smoothed": true,
         "userAdded": false
+      },
+      {
+        "file": "Assets/star32x32.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Assets/star32x32.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "Assets/turtle32x32.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Assets/turtle32x32.png",
+        "smoothed": true,
+        "userAdded": false
       }
     ]
   },
@@ -103,7 +119,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.546875,
+        "zoomFactor": 8.297338202081374,
         "windowMask": false,
         "selectedLayer": "",
         "gameEditorMode": "instances-editor"
@@ -123,6 +139,86 @@
           "x": 629,
           "y": 329,
           "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "Star",
+          "persistentUuid": "fe43535e-d2fe-4b26-a1ba-3b2f854d27b4",
+          "width": 0,
+          "x": 835,
+          "y": 203,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "Star",
+          "persistentUuid": "8e263d69-0a65-451b-83de-030118b7f464",
+          "width": 0,
+          "x": 718,
+          "y": 205,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "Star",
+          "persistentUuid": "2a2959f6-0d3d-42d7-8c08-5e65d7bf5127",
+          "width": 0,
+          "x": 517,
+          "y": 190,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "Star",
+          "persistentUuid": "937fdfe8-5f78-43ce-8621-ac7bbbdb5271",
+          "width": 0,
+          "x": 438,
+          "y": 198,
+          "zOrder": 5,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "NewSprite",
+          "persistentUuid": "d71a1d18-da7b-4de1-9582-484517215c41",
+          "width": 0,
+          "x": 566,
+          "y": 340,
+          "zOrder": 6,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -230,14 +326,124 @@
         {
           "adaptCollisionMaskAutomatically": true,
           "assetStoreId": "",
-          "name": "NewSprite",
+          "name": "Star",
           "persistentUuid": "5f1a6816-3358-48c4-a7bd-46176c7c6a1d",
           "type": "Sprite",
           "updateIfNotVisible": false,
           "variables": [],
           "effects": [],
           "behaviors": [],
-          "animations": []
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "Assets/star32x32.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 2,
+                            "y": 3
+                          },
+                          {
+                            "x": 30,
+                            "y": 3
+                          },
+                          {
+                            "x": 30,
+                            "y": 29
+                          },
+                          {
+                            "x": 2,
+                            "y": 29
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "NewSprite",
+          "persistentUuid": "9d341d67-8488-473d-a8cc-a449a0cb45e6",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "Assets/turtle32x32.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 2,
+                            "y": 4
+                          },
+                          {
+                            "x": 30,
+                            "y": 4
+                          },
+                          {
+                            "x": 30,
+                            "y": 27
+                          },
+                          {
+                            "x": 2,
+                            "y": 27
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ],
       "objectsFolderStructure": {
@@ -245,6 +451,9 @@
         "children": [
           {
             "objectName": "Player"
+          },
+          {
+            "objectName": "Star"
           },
           {
             "objectName": "NewSprite"
