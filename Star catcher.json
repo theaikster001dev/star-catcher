@@ -115,6 +115,14 @@
         "name": "Assets/turtle32x32.png",
         "smoothed": true,
         "userAdded": false
+      },
+      {
+        "file": "assets/NewTiledSprite.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\",\"pskl\":{}}",
+        "name": "NewTiledSprite",
+        "smoothed": true,
+        "userAdded": false
       }
     ]
   },
@@ -624,14 +632,49 @@
         "zoomFactor": 0.5653158055126319,
         "windowMask": false,
         "selectedLayer": "",
-        "gameEditorMode": "embedded-game"
+        "gameEditorMode": "instances-editor"
       },
       "objectsGroups": [],
       "variables": [],
-      "instances": [],
-      "objects": [],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 0,
+          "height": 480,
+          "layer": "",
+          "name": "floor",
+          "persistentUuid": "30755cc3-c95d-420c-b384-177a8eeb3b60",
+          "width": 640,
+          "x": 0,
+          "y": 0,
+          "zOrder": -10,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        }
+      ],
+      "objects": [
+        {
+          "assetStoreId": "",
+          "height": 32,
+          "name": "floor",
+          "persistentUuid": "cf4dabda-c604-4710-a95e-e3a84c6de678",
+          "texture": "NewTiledSprite",
+          "type": "TiledSpriteObject::TiledSprite",
+          "width": 32,
+          "variables": [],
+          "effects": [],
+          "behaviors": []
+        }
+      ],
       "objectsFolderStructure": {
-        "folderName": "__ROOT"
+        "folderName": "__ROOT",
+        "children": [
+          {
+            "objectName": "floor"
+          }
+        ]
       },
       "events": [],
       "layers": [
@@ -703,7 +746,20 @@
           ]
         }
       ],
-      "behaviorsSharedData": []
+      "behaviorsSharedData": [
+        {
+          "name": "Effect",
+          "type": "EffectCapability::EffectBehavior"
+        },
+        {
+          "name": "Opacity",
+          "type": "OpacityCapability::OpacityBehavior"
+        },
+        {
+          "name": "Resizable",
+          "type": "ResizableCapability::ResizableBehavior"
+        }
+      ]
     }
   ],
   "externalEvents": [],
